@@ -1,10 +1,7 @@
 Description
 ===========
 
-Marcato is a lightweight command line music player for iTunes playlists.
-
-It's still alpha quality software.  Right now it's a thin wrapper around
-`afplay`.
+Marcato is a playlist manager for use with `mplayer`.
 
 Installation
 ============
@@ -14,41 +11,48 @@ Installation
 Usage
 =====
 
-First, you'll need to sync marcato with your iTunes playlist.
+First, set any options in your `.bashrc` or `.zshrc`:
 
-    % marcato --sync
+    export MARCATO_MUSIC="/path/to/music"
+    export MARCATO_FILE="/path/to/.marcato" # defaults to ~/.marcato
+    export MARCATO_OPTS="--random"          # optional
 
-Play a song by giving a song or artist name.  If there's any ambiguity, marcato
-will ask for clarification:
+Playlists can be made on the fly via searching:
 
-    % marcato "Muse"
-    1. Muse - Super Massive Black Hole
-    2. Muse - Starlight
-    > 1
+    % marcato muse
+    muse_super-massive-black-hole.mp3
+    muse_starlight.mp3
+    % mplayer -playlist <(marcato muse)
 
-Leave it blank to play all matches.  This works with playlists too:
+Playlists are just yaml, each line is a search term:
 
-    % marcato "Top 25"
+    % marcato --edit
+    top-songs:
+      - muse
+      - beatles
 
-To pause and unpause:
+    jazz:
+      - coltrane
+      - jazz-mafia
 
-    % marcato -p
+Access your playlist just like searching for a song.  Marcato accepts multiple
+terms/playlists:
 
-To stop completely:
+    % marcao jazz beatles
 
-    % marcato --stop
+By default, the order of songs is alphabetical.  Use the `--random` flag to
+shuffle:
 
-Skip forwards/backwards along the playlist:
+    % marcato --random jazz
 
-    % marcato --forward
-    % marcato --backward
+List out playlists with `--list`:
 
-Repeat your favorites or randomize your lists:
-
-    % marcato --random --repeat "Top 25"
+    % marcato --list
+    jazz
+    top-songs
 
 License
 =======
 
-Copyright 2012 Hugh Bien - http://hughbien.com.
+Copyright (c) Hugh Bien - http://hughbien.com.
 Released under BSD License, see LICENSE.md for more info.

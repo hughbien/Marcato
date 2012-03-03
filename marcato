@@ -6,15 +6,10 @@ OptionParser.new do |o|
   @m = Marcato.new
   o.set_summary_indent('  ')
   o.banner =    "Usage: #{File.basename($0)} [option] <song or playlist>"
-  o.define_head 'Command line music player for iTunes playlists'
-  o.on('-p', '--pause', 'toggle between play/pause') { @m.pause; exit }
-  o.on('-b', '--backward', 'skip backwards') { @m.skip_backward; exit }
-  o.on('-f', '--forward', 'skip forwards') { @m.skip_forward; exit }
+  o.define_head 'Playlist manager for mplayer'
+  o.on('-e', '--edit', 'edit playlists') { @m.edit; exit }
+  o.on('-l', '--list', 'list playlists') { @m.list; exit }
   o.on('-r', '--random', 'play in random order') { @m.randomize! }
-  o.on('-R', '--repeat', 'repeat when finished') { @m.repeat! }
-  o.on('-s', '--stop', 'stop playing') { @m.stop; exit }
-  o.on('-S', '--sync', 'sync playlists') { @m.sync; exit }
-  o.on('-i', '--init', 'initialize player') { @m.init_player(ARGV); exit }
   o.on('-h', '--help', 'show this help message') { puts o; exit }
   o.parse!(ARGV + (ENV['MARCATO_OPTS'] ? ENV['MARCATO_OPTS'].split(/\s+/) : []))
   @m.play(ARGV.join(' '))
