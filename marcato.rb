@@ -21,11 +21,12 @@ class Marcato
 
   def play(query = '')
     searches = query.split(/\s+/)
+    searches = [''] if searches.empty?
     playlists.select { |k,v| searches.include?(k) }.each do |name, terms|
       searches += terms
     end
     files = searches.map do |search|
-      Dir.glob(File.join(MARCATO_MUSIC, "*#{search}*"))
+      Dir.glob(File.join(MARCATO_MUSIC, "**/*#{search}*"))
     end.flatten.uniq
     files = @random ? files.sort_by { rand } : files.sort
     puts files.join("\n") if !files.empty?
