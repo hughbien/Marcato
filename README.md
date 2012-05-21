@@ -22,7 +22,7 @@ Playlists can be made on the fly via searching:
     % marcato muse
     muse_super-massive-black-hole.mp3
     muse_starlight.mp3
-    % mplayer -playlist <(marcato muse)
+    % mplayer `marcato muse`
 
 Playlists are just yaml, each line is a search term:
 
