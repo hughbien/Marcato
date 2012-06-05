@@ -2,7 +2,7 @@ require 'rubygems'
 require 'yaml'
 
 class Marcato
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
   MARCATO_FILE = ENV['MARCATO_FILE'] || "#{ENV['HOME']}/.marcato"
   MARCATO_MUSIC = File.expand_path(ENV['MARCATO_MUSIC'] || '.')
   EDITOR = ENV['EDITOR'] || 'vi'
