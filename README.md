@@ -6,7 +6,7 @@ Marcato is a playlist manager for use with `mplayer`.
 Installation
 ============
 
-    % gem install marcato
+    $ gem install marcato
 
 Usage
 =====
@@ -19,14 +19,14 @@ First, set any options in your `.bashrc` or `.zshrc`:
 
 Playlists can be made on the fly via searching:
 
-    % marcato muse
+    $ marcato muse
     muse_super-massive-black-hole.mp3
     muse_starlight.mp3
-    % mplayer `marcato muse`
+    $ mplayer `marcato muse`
 
 Playlists are just yaml, each line is a search term:
 
-    % marcato --edit
+    $ marcato --edit
     top-songs:
       - muse
       - beatles
@@ -38,16 +38,16 @@ Playlists are just yaml, each line is a search term:
 Access your playlist just like searching for a song.  Marcato accepts multiple
 terms/playlists:
 
-    % marcao jazz beatles
+    $ marcao jazz beatles
 
 By default, the order of songs is alphabetical.  Use the `--random` flag to
 shuffle:
 
-    % marcato --random jazz
+    $ marcato --random jazz
 
 List out playlists with `--list`:
 
-    % marcato --list
+    $ marcato --list
     jazz
     top-songs
 
