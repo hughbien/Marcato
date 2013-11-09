@@ -10,7 +10,6 @@ Gem::Specification.new do |s|
                   'playlists that work with mplayer.'
  
   s.required_rubygems_version = '>= 1.3.6'
-  s.add_development_dependency 'minitest'
   s.add_development_dependency 'mocha'
  
   s.files        = Dir.glob('*.{rb,md}') + %w(marcato)
