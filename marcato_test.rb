@@ -1,9 +1,9 @@
-require 'rubygems'
 require "#{File.dirname(__FILE__)}/marcato"
+gem 'minitest'
 require 'minitest/autorun'
 require 'mocha/setup'
 
-class MarcatoTest < MiniTest::Unit::TestCase
+class MarcatoTest < Minitest::Test
   def setup
     @m = Marcato.new
   end
