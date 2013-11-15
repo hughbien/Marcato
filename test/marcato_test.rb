@@ -1,4 +1,4 @@
-require "#{File.dirname(__FILE__)}/marcato"
+require File.expand_path("#{File.dirname(__FILE__)}/../lib/marcato")
 gem 'minitest'
 require 'minitest/autorun'
 require 'mocha/setup'
