@@ -1,9 +1,9 @@
 require File.expand_path('marcato', File.join(File.dirname(__FILE__), 'lib'))
 
-task :default => :test
+task :default => :spec
 
-task :test do
-  ruby 'test/*_test.rb' # see .watchr for continuous testing
+task :spec do
+  ruby 'spec/*_spec.rb' # see .watchr for continuous testing
 end
 
 task :build do
